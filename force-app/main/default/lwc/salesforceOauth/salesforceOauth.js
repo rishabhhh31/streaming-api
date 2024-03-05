@@ -11,7 +11,7 @@ export default class SalesforceOauth extends NavigationMixin(LightningElement) {
     tokenDisbled = false
     accessToken;
     accId;
-    authUrl = 'https://resilient-shark-8carn7-dev-ed.trailblaze.my.salesforce.com/services/oauth2/authorize?client_id=3MVG9n_HvETGhr3BwHHbRwCSgGmIz6rPfQDaD.ZrFlUGbT4blhqJb1SQl2TCxTf7.VT.xZCpXkoqe8BhnOQzX&redirect_uri=https://helioswebservice2-dev-ed.develop.my.site.com/salesforceoauth/s/&response_type=code';
+    authUrl = 'https://resilient-shark-8carn7-dev-ed.trailblaze.my.salesforce.com/services/oauth2/authorize?client_id={clientId}&redirect_uri=https://helioswebservice2-dev-ed.develop.my.site.com/salesforceoauth/s/&response_type=code';
     @wire(CurrentPageReference)
     getStateParameter(CurrentPageRef) {
         if (CurrentPageRef) {

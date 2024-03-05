@@ -6,8 +6,8 @@ public with sharing class SalesforceOAuth {
         request.setEndpoint('https://resilient-shark-8carn7-dev-ed.trailblaze.my.salesforce.com/services/oauth2/token');
         String body='grant_type=authorization_code&';
         body+='code='+code+'&';
-        body+='client_id=3MVG9n_HvETGhr3BwHHbRwCSgGmIz6rPfQDaD.ZrFlUGbT4blhqJb1SQl2TCxTf7.VT.xZCpXkoqe8BhnOQzX&';
-        body+='client_secret=8E08A66407FBA554D2A5013E5B42EABCF4D7B7D57150DF64A1843D675B48BE0D&';
+        body+='client_id={clientId}&';
+        body+='client_secret={secret}&';
         body+='redirect_uri=https://helioswebservice2-dev-ed.develop.my.site.com/salesforceoauth/s/';
         request.setBody(body);
         request.setHeader('Content-type', 'application/x-www-form-urlencoded');
