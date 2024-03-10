@@ -1,9 +1,11 @@
-public with sharing class SalesforceOAuth {
+public class SalesforceOAuth {
     @AuraEnabled
-    public static String getAccessToken(String code) {
+    public static String getAccessToken(String code, String domain) {
         HttpRequest request=new HttpRequest();
         request.setMethod('POST');
-        request.setEndpoint('https://resilient-shark-8carn7-dev-ed.trailblaze.my.salesforce.com/services/oauth2/token');
+        String myDomain=domain+'/services/oauth2/token';
+        request.setEndpoint(myDomain);
+        System.debug(myDomain);
         String body='grant_type=authorization_code&';
         body+='code='+code+'&';
         body+='client_id={clientId}&';
@@ -16,10 +18,10 @@ public with sharing class SalesforceOAuth {
         return response.getBody();
     }
     @AuraEnabled
-    public static String newAccount(String access, String name){
+    public static String newAccount(String access, String name, String domain){
         String accString=JSON.serialize(new Account(Name=name, Rating='Hot', Industry='Banking', Active__c='Yes'));
         HttpRequest request=new HttpRequest();
-        request.setEndpoint('https://resilient-shark-8carn7-dev-ed.trailblaze.my.salesforce.com/services/data/v60.0/sobjects/Account');
+        request.setEndpoint(domain+'/services/data/v60.0/sobjects/Account');
         request.setMethod('POST');
         request.setHeader('Authorization', 'Bearer '+access);
         request.setHeader('content-type','application/json');
