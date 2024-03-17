@@ -1,5 +1,6 @@
 <template>
-    <lightning-input type="text" variant="standard" name="domain" label="Enter domain" onchange={domainHandler}></lightning-input>
+    <lightning-input type="text" variant="standard" name="domain" label="Enter domain"
+        onchange={domainHandler}></lightning-input>
     <lightning-button disabled={authDisabled} label="Authorize" onclick={authorizeHandler}></lightning-button>
     <template if:true={getAccessToken}>
         <lightning-button disabled={tokenDisbled} label="Get Token" onclick={Token}></lightning-button>

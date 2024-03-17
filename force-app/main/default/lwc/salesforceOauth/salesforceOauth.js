@@ -2,7 +2,6 @@ import { LightningElement, wire } from 'lwc';
 import { CurrentPageReference, NavigationMixin } from 'lightning/navigation';
 import getAccessToken from '@salesforce/apex/SalesforceOAuth.getAccessToken';
 import newAccount from '@salesforce/apex/SalesforceOAuth.newAccount';
-
 export default class SalesforceOauth extends NavigationMixin(LightningElement) {
     code;
     accName;

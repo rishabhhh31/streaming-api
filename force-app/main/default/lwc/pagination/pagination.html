@@ -1,0 +1,23 @@
+<template>
+    <lightning-card icon-name="custom:custom33" title="Account Pagination Using LWC">
+        <template if:true={accountList}>
+            <lightning-spinner if:true={isLoading} variant="brand" size="medium"></lightning-spinner>
+            <div class="slds-p-around_small">
+                <lightning-input class="slds-align_absolute-center" label="Search Account"
+                    onchange={handelSearchKey}></lightning-input>
+            </div>
+            <lightning-datatable show-row-number-column="true" hide-checkbox-column="true" data={accountList}
+                columns={columns} key-field="Id">
+            </lightning-datatable>
+            <lightning-layout horizontal-align="center">
+                <lightning-layout-item padding="around-small">
+                    <lightning-button disabled={disablePrevious} label="Previous"
+                        onclick={previousHandler}></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <lightning-button disabled={disableNext} label="Next" onclick={nextHandler}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+    </lightning-card>
+</template>
