@@ -1,0 +1,30 @@
+<template>
+    <div if:true={showSpinner}>
+        <lightning-spinner variant="brand" alternative-text="Uploading......">
+        </lightning-spinner>
+    </div>
+    <div class="slds-p-around_small">
+        <lightning-card icon-name="custom:custom35" title="Upload File">
+            <div class="slds-p-around_medium">
+                <lightning-input multiple type="file" label="Upload" variant="label-hidden" accept={acceptedFormats}
+                    onchange={handleChange}></lightning-input>
+                <template if:true={showPills}>
+                    <lightning-pill-container onitemremove={handleItemRemove}
+                        items={fileItems}></lightning-pill-container>
+                </template>
+                <div class="slds-p-around_small"></div>
+                <lightning-button disabled={isTrue} onclick={uploadFiles} label="Upload File"></lightning-button>
+            </div>
+        </lightning-card>
+    </div>
+    <template if:true={showTable}>
+        <div class="slds-p-around_small">
+            <lightning-card icon-name="custom:custom65" title="Created Records">
+                <div style="width: auto;">
+                    <lightning-datatable data={data} columns={columns} key-field="Id">
+                    </lightning-datatable>
+                </div>
+            </lightning-card>
+        </div>
+    </template>
+</template>
