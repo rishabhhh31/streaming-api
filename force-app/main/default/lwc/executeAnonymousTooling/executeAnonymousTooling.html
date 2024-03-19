@@ -1,0 +1,19 @@
+<template>
+    <lightning-card variant="Narrow" title="Execute Code" icon-name="standard:apex">
+        <div if:true={showSpinner}>
+            <lightning-spinner alternative-text="Loading" variant="brand" class="slds-is-fixed">
+            </lightning-spinner>
+        </div>
+        <div class="slds-p-horizontal_medium">
+            <lightning-textarea name="Code" label="Code" data-id="code" value={scriptCode} onchange={handleFieldChange}
+                class="scriptCode" required>
+            </lightning-textarea>
+
+            <div class="slds-text-align_center slds-m-top_small">
+                <lightning-button variant="brand" label="Execute Code" title="Execute Code" onclick={handleExecute}
+                    disabled={isDisableExecuteButton}>
+                </lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>
