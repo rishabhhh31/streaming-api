@@ -24,11 +24,9 @@ export default class ExecuteCodeLWC extends LightningElement {
         if (this.scriptCode.length > 0) {
             executeCode({ script: this.scriptCode })
                 .then(res => {
-                    console.log(res);
                     this.showToast('Success', res, 'success', 'dismissable');
                     this.handleValidation('', false);
                 }).catch(err => {
-                    console.log(err);
                     this.showToast('Error', err.body.message, 'error', 'dismissable');
                     this.handleValidation(err.body.message, true);
                 }).finally(() => {
